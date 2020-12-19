@@ -2,7 +2,6 @@
 
     height: 210px; 
     width: 300px; 
-<<<<<<< HEAD
     padding-right: 36px;
 }
 
@@ -51,9 +50,11 @@ background-color: blue;
 }
 #col-md-3 .card
     {
-      width: 10rem;
+      width: 5rem;
      
     }
+
+
 #card-body, h5, h6{
     font-size: small;
     padding: 2px;
@@ -102,6 +103,4 @@ padding-right: 0;
 
 box-shadow: 0 .125rem .125rem rgba(0,0,0,.075)!important;
 border: 1px solid #dee2e6!important;
-=======
->>>>>>> parent of a486fd7... hader imagers move to staic folder
 }
