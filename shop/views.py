@@ -9,17 +9,17 @@ from django.http import HttpResponse
 MERCHANT_KEY = 'KiwP@v8@_6IzWZRO'
 
 def index(request):
-    # allProds = []
-    # catprods = Product.objects.values('category', 'id')
-    # cats = {item['category'] for item in catprods}
-    # for cat in cats:
-    #     prod = Product.objects.filter(category=cat)
-    #     n = len(prod)
-    #     nSlides = n // 4 + ceil((n / 4) - (n // 4))
-    #     allProds.append([prod, range(1, nSlides), nSlides])
-    # params = {'allProds':allProds}
+    allProds = []
+    catprods = Product.objects.values('category', 'id')
+    cats = {item['category'] for item in catprods}
+    for cat in cats:
+        prod = Product.objects.filter(category=cat)
+        n = len(prod)
+        nSlides = n // 4 + ceil((n / 4) - (n // 4))
+        allProds.append([prod, range(1, nSlides), nSlides])
+    params = {'allProds':allProds}
     product = Product.objects.all()
-    return render(request, 'shop/index.html',{'product': product})
+    return render(request, 'shop/index.html',params)
 
 
 def about(request):

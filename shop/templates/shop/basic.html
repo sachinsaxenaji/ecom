@@ -11,8 +11,26 @@
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 
     <link rel="stylesheet" media="screen and (max-width: 1170px)" href="{%static 'shop/css/phone.css' %}">
+    <link rel="stylesheet" href="{%static 'shop/css/style.css' %}" />
+    <style>
+      #navbar-expand-lg{
+      position: fixed;
+      top: 0;
+     left: 0;
+      width: 100%;
+      
+     
+      background: #FFF;
+      z-index: 999999;
+     
+      border-bottom: 0px solid #e5e5e5;
+      overflow: hidden;
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  }
+    </style>
+    
+
+   
     
     <title>{% block title%}Dedmo Website {% endblock %}</title>
      <style>
@@ -22,7 +40,7 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id = "navbar-expand-lg">
   <a class="navbar-brand" href="/shop">My Demo Website</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -72,22 +90,30 @@ sagittis lacus vel augue laoreet rutrum faucibus.">
 </nav>
 {% block header %} {% endblock %}
   {% block body %} {% endblock %}
-
+  
+  
+  <script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  
+    {% block js %} {% endblock %}
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-   
+    <!-- <script src="https://cdn.tiny.cloud/1/wo1j6jux6r1iypr0ewcq5gaymjlia8a5ci7ixpgxyhvxzqf6/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+     -->
     <script>
       $(document).foundation();
     </script>
     
-    {% block js %} {% endblock %}
+   
   </body>
   {% block footer %} {% endblock %}
 

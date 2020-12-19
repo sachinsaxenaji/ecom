@@ -4,18 +4,128 @@
     <title>{% block title%}Foundation | Welcome {% endblock %}</title>
    
     {% block css %}
+    .col-md-3
+    {
+    display: inline-block;
+    margin-left:-4px;
+    }
+    .carousel-indicators .active {
+    background-color: blue;
+    }
+    .col-md-3 img{
+    width: 170px;
+    height: 200px;
+    }
+    #card
+    {
+      width: 17rem;
+    }
+
+    body .carousel-indicator li{
+    background-color: blue;
+    }
+    body .carousel-indicators{
+    bottom: 0;
+    }
+    body .carousel-control-prev-icon,
+    body .carousel-control-next-icon{
+    background-color: #2f2f2f;
+    width: 55px;
+    height: 55px;
+    }
+    .carousel-control-prev,
+    .carousel-control-next{
+    font-weight: 700;
+    top: auto;
+    bottom: auto;
+    padding-top: 222px;
+    size: 700;
+    }
+    body .no-padding{
+    padding-left: 0,
+    padding-right: 0;
+    }
+    .carousel-item
+    {
+    <!-- background-color: #e9ecef; -->
+    padding-right: 2dp;
+    box-shadow: 0 .125rem .125rem rgba(0,0,0,.075)!important;
+    border: 1px solid #dee2e6!important;
+    }
+    
        
-  
-    
-    
-        .orbit-container {
+ .orbit-container {
     height: 500px;
     background-color: transparent;
   border: 1px solid #f1f1f1;
   
  
     }
+
+    .testimonial-block-vertical {
+     
+      padding-right: 460px;
+      padding-left: 160px;
+    }
  
+.testimonial-block-vertical-quote {
+  background: rgba(23, 121, 186, 0.25);
+  padding: 1rem;
+  border-radius: 0;
+  margin-bottom: 1.875rem;
+  position: relative;
+  padding-right: 200px;
+}
+
+.testimonial-block-vertical-quote p {
+  margin-bottom: 0;
+}
+
+.testimonial-block-vertical-quote::after {
+  content: '';
+  bottom: -1.25rem;
+  left: 2.25rem;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 1.25rem 1.125rem 0 1.125rem;
+  border-color: rgba(23, 121, 186, 0.25) transparent transparent transparent;
+  position: absolute;
+  
+}
+
+.testimonial-block-vertical-person {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 1.65rem;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.testimonial-block-vertical-avatar {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.testimonial-block-vertical-name {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-left: 0.65rem;
+}
+
+.testimonial-block-vertical-info {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #8a8a8a;
+  margin-bottom: 0;
+  margin-left: 0.65rem;
+}
+
+
 
     {% endblock %}
     {% load static %}
@@ -92,28 +202,78 @@
 <br>
 </div> -->
 
-    <div class="row column text-center">
+    <!-- <div class="row column text-center">
       <h2>Our Newest Products</h2>
       <hr>
     </div>
 
     <div class="row small-up-2 large-up-4">
-        {% for i in product %}
-      <div class="column">
-        <img class="thumbnail" src='/media/{{i.image}}'>
-        <h5 class="card-title" id="namepr{{i.id}}">{{i.product_name}}</h5>
-        <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
-        <h6 class="card-title" >Price : <span id="pricepr{{i.id}}">{{i.price}}</span></h6>
-        
-        <span id="divpr{{i.id}}" class="divpr">
-            <button id="pr{{i.id}}" class="btn button expanded cart">Add To Cart</button>
-        </span>
-        <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}" class="button expanded">QuickView</button></a>
-    
-      </div>
-      {% endfor %}
+      {% for i in product %}
+    <div class="column">
+      <img class="thumbnail" src='/media/{{i.image}}'>
+      <h5 class="card-title" id="namepr{{i.id}}">{{i.product_name}}</h5>
+      <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
+      <h6 class="card-title" >Price : <span id="pricepr{{i.id}}">{{i.price}}</span></h6>
+      
+      <span id="divpr{{i.id}}" class="divpr">
+          <button id="pr{{i.id}}" class="btn button expanded cart">Add To Cart</button>
+      </span>
+      <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}" class="button expanded">QuickView</button></a>
+  
     </div>
+    {% endfor %}
+  </div> -->
 
+  <div class="container" id = "container">
+    <!--Slideshow starts here -->
+    {% for product, range, nSlides in allProds %}
+    
+
+
+    <h5 class="my-4"> {{product.0.category}} - Recommended Items</h5>
+    <div class="row">
+        <div id="#demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel" data-interval="false" >
+            <ul class="carousel-indicators">
+                <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
+                {% for i in range %}
+                <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}"></li>
+                {% endfor %}
+            </ul>
+            <div class="container carousel-inner no-padding" id = "carousel-inner">
+                <div class="carousel-item active" id = "carousel-item">
+                    {% for i in product %}
+                    <div class="col-xs-3 col-sm-3 col-md-3" id = "col-md-3">
+                        <div class="card align-items-center"  id = "card">
+                            <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+                            <div class="card-body" id = "card-body">
+                                <h5 class="card-title" id="namepr{{i.id}}">{{i.product_name}}</h5>
+                                <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
+                                <h6 class="card-title" >Price : <span id="pricepr{{i.id}}">{{i.price}}</span></h6>
+                                <span id="divpr{{i.id}}" class="divpr">
+                                    <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
+                                </span>
+                                <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart">QuickView</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+                </div>
+                <div class="carousel-item">
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- left and right controls for the slide -->
+        <a class="carousel-control-prev" id = "carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+            <span class="carousel-control-prev-icon" id = "carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" id = "carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
+            <span class="carousel-control-next-icon" id = "carousel-control-next-icon"></span>
+        </a>
+    </div>
+    {% endfor %}
+</div>
     <hr>
 
     <div class="row column">
@@ -238,6 +398,21 @@
       </div>
     </div>
 
+    <!-- <div class="testimonial-block-vertical">
+      <div class="testimonial-block-vertical-quote">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices, elit sed faucibus pharetra, diam mauris bibendum orci, sit amet ullamcorper purus dui sit amet augue. Donec aliquet diam ut neque mattis, eu tristique sem rutrum.</p>
+      </div>
+      <div class="testimonial-block-vertical-person">
+        <img class="testimonial-block-vertical-avatar" src="https://placehold.it/60" alt="" />
+        <div>
+          <p class="testimonial-block-vertical-name">John Doe</p>
+          <p class="testimonial-block-vertical-info">Important person, some Company</p>
+        </div>
+      </div>
+    </div> -->
+    
+    
+
     <div class="callout large secondary">
       <div class="row">
         <div class="large-4 columns">
@@ -257,98 +432,107 @@
       </div>
     </div>
 
- 
-{% endblock %}
-
-{% block js %}
-<script>
-// Find out the cart items from localStorage
-if (localStorage.getItem('cart') == null) {
-    var cart = {};
-} else {
-    cart = JSON.parse(localStorage.getItem('cart'));
-    updateCart(cart);
-}
-// If the add to cart button is clicked, add/increment the item
-//$('.cart').click(function() {
-$('.divpr').on('click', 'button.cart', function() {
-    var idstr = this.id.toString();
-    if (cart[idstr] != undefined) {
-        qty = cart[idstr][0] + 1;
-        
+  
+  {% endblock %}
+    {% block js %}
+    <script>
+    // Find out the cart items from localStorage
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
     } else {
-        qty = 1;
-        name = document.getElementById('name'+idstr).innerHTML
-        price = document.getElementById('price'+idstr).innerHTML
-        cart[idstr] = [qty, name, parseInt(price)];
-
+        cart = JSON.parse(localStorage.getItem('cart'));
+        updateCart(cart);
     }
-    updateCart(cart);
-});
-//Add Popover to cart
-$('#popcart').popover();
-updatePopover(cart);
-
-function updatePopover(cart) {
-    console.log('We are inside updatePopover');
-    var popStr = "";
-    popStr = popStr + "<h5> Cart for your items in my shopping cart </h5><div class='mx-2 my-2'>";
-    var i = 1;
-    for (var item in cart) {
-        popStr = popStr + "<b>" + i + "</b>. ";
-        popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 19) + "... Qty: " + cart[item][0] + '<br>';
-        i = i + 1;
-    }
-    popStr = popStr + "</div> <a href='/shop/checkout'><button class='btn btn-primary' id ='checkout'>Checkout</button></a> <button class='btn btn-primary' onclick='clearCart()' id ='clearCart'>Clear Cart</button>     "
-    console.log(popStr);
-    document.getElementById('popcart').setAttribute('data-content', popStr);
-    // $('#popcart').popover('show');
-}
-
-function clearCart() {
-    cart = JSON.parse(localStorage.getItem('cart'));
-    for (var item in cart) {
-        document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-primary cart">Add To Cart</button>'
-    }
-    localStorage.clear();
-    cart = {};
-    updateCart(cart);
-}
-
-function updateCart(cart) {
-    var sum = 0;
-    for (var item in cart) {
-        sum = sum + cart[item][0];
-        document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''>" + cart[item][0] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    document.getElementById('cart').innerHTML = sum;
-    console.log(cart);
+    // If the add to cart button is clicked, add/increment the item
+    //$('.cart').click(function() {
+    $('.divpr').on('click', 'button.cart', function() {
+        var idstr = this.id.toString();
+        if (cart[idstr] != undefined) {
+            qty = cart[idstr][0] + 1;
+            
+        } else {
+            qty = 1;
+            name = document.getElementById('name'+idstr).innerHTML
+            price = document.getElementById('price'+idstr).innerHTML
+            cart[idstr] = [qty, name, parseInt(price)];
+    
+        }
+        updateCart(cart);
+    });
+    //Add Popover to cart
+    $('#popcart').popover();
     updatePopover(cart);
-}
-// If plus or minus button is clicked, change the cart as well as the display value
-$('.divpr').on("click", "button.minus", function() {
-    a = this.id.slice(7, );
-    cart['pr' + a][0] = cart['pr' + a][0] - 1;
-    cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
-    document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
-    if (cart['pr'+ a][0]==0)
-    {
-        document.getElementById('divpr' + a).innerHTML = '<button id="pr'+a+'" class="btn btn-primary cart">Add To Cart</button>'
-        delete cart['pr' + a];
+    
+    function updatePopover(cart) {
+        console.log('We are inside updatePopover');
+        var popStr = "";
+        popStr = popStr + "<h5> Cart for your items in my shopping cart </h5><div class='mx-2 my-2'>";
+        var i = 1;
+        for (var item in cart) {
+            popStr = popStr + "<b>" + i + "</b>. ";
+            popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 19) + "... Qty: " + cart[item][0] + '<br>';
+            i = i + 1;
+        }
+        popStr = popStr + "</div> <a href='/shop/checkout'><button class='btn btn-primary' id ='checkout'>Checkout</button></a> <button class='btn btn-primary' onclick='clearCart()' id ='clearCart'>Clear Cart</button>     "
+        console.log(popStr);
+        document.getElementById('popcart').setAttribute('data-content', popStr);
+        // $('#popcart').popover('show');
     }
-    else{
-
+    
+    function clearCart() {
+        cart = JSON.parse(localStorage.getItem('cart'));
+        for (var item in cart) {
+            document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-primary cart">Add To Cart</button>'
+        }
+        localStorage.clear();
+        cart = {};
+        updateCart(cart);
+    }
+    
+    function updateCart(cart) {
+        var sum = 0;
+        for (var item in cart) {
+            sum = sum + cart[item][0];
+            document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''>" + cart[item][0] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        document.getElementById('cart').innerHTML = sum;
+        console.log(cart);
+        updatePopover(cart);
+    }
+    // If plus or minus button is clicked, change the cart as well as the display value
+    $('.divpr').on("click", "button.minus", function() {
+        a = this.id.slice(7, );
+        cart['pr' + a][0] = cart['pr' + a][0] - 1;
+        cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
         document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
-    }
-    updateCart(cart);
-});
-$('.divpr').on("click", "button.plus", function() {
-    a = this.id.slice(6, );
-    cart['pr' + a][0] = cart['pr' + a][0] + 1;
-    document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+        if (cart['pr'+ a][0]==0)
+        {
+            document.getElementById('divpr' + a).innerHTML = '<button id="pr'+a+'" class=" btn btn-primary cart">Add To Cart</button>'
+            delete cart['pr' + a];
+        }
+        else{
+    
+            document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+        }
+        updateCart(cart);
+    });
+    $('.divpr').on("click", "button.plus", function() {
+        a = this.id.slice(6, );
+        cart['pr' + a][0] = cart['pr' + a][0] + 1;
+        document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+    
+        updateCart(cart);
+    });
 
-    updateCart(cart);
+    if($(window).width() >= 1170){
+      $(document).ready(function(){
+    //Event for pushed the video
+    $('#demo').carousel({
+        pause: true,
+        interval: true
+    });
 });
-</script>
-{% endblock %}
+  }
+    </script>
+    {% endblock %}

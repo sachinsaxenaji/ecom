@@ -4,3 +4,101 @@
     width: 300px; 
     padding-right: 36px;
 }
+
+
+#navbar-expand-lg{
+    position: fixed;  
+      }
+
+
+
+#card-body{
+    padding-left: 0%;
+    padding-right: 0%;
+    
+}
+#container{
+
+    padding-left: 0%;
+    padding-right: 0%;
+}
+#col-md-3
+{
+display: inline-block;
+padding-left: 0%;
+padding-right: 5%;
+width: 165px;
+height: 210px;
+font-size: medium;
+
+}
+
+
+.carousel-indicators .active {
+background-color: blue;
+}
+#carousel-inner{
+
+    padding-left: 0%;  
+    margin-left: 0mm;
+    margin-right: 0mm;
+}
+#carousel-item{
+    padding-left: 0%;  
+    padding-right: 0%;  
+}
+}
+#col-md-3 .card
+    {
+      width: 10rem;
+     
+    }
+#card-body, h5, h6{
+    font-size: small;
+    padding: 2px;
+
+
+}
+#col-md-3 img{
+width: 70px;
+height: 70px;
+}
+#col-md-3 button{
+    width: 70px;
+    height: 30px;
+    font-size: 7px;
+    margin-left: -1px;
+    }
+body .carousel-indicator li{
+background-color: blue;
+}
+body .carousel-indicators{
+bottom: 0;
+}
+body #carousel-control-prev-icon,
+body #carousel-control-next-icon{
+background-color: #2f2c2d;
+width: 15px;
+height: 15px;
+visibility: hidden;
+}
+#carousel-control-prev,
+#carousel-control-next{
+font-weight: 70;
+top: auto;
+bottom: auto;
+padding-top: 22px;
+size: 70;
+visibility: hidden;
+}
+body .no-padding{
+padding-left: 0,
+padding-right: 0;
+}
+.carousel-item
+{
+ background-color: #e9ecef;
+
+box-shadow: 0 .125rem .125rem rgba(0,0,0,.075)!important;
+border: 1px solid #dee2e6!important;
+}
