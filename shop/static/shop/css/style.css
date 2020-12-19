@@ -25,13 +25,12 @@ body,
 
 #navbar-expand-lg{
 position: fixed;
-
 top: 0;
 left: 0;
 width: 100%;
 background: #FFF;
 z-index: 999999;
-height: 0px;
+
 border-bottom: 0px solid #e5e5e5;
 overflow: hidden;
 
