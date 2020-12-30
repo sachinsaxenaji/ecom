@@ -5,6 +5,11 @@
     padding-right: 36px;
 }
 
+#btn-secondary{
+
+    visibility: visible;
+      }
+
 
 #navbar-expand-lg{
     position: fixed;  
@@ -20,14 +25,14 @@
 #container{
 
     padding-left: 0%;
-    padding-right: 0%;
+    padding-right: 0px;
 }
 #col-md-3
 {
 display: inline-block;
 padding-left: 0%;
 padding-right: 5%;
-width: 165px;
+width: 155px;
 height: 210px;
 font-size: medium;
 
@@ -50,7 +55,8 @@ background-color: blue;
 
 #col-md-3 .card
     {
-      width: 11rem;
+      width: 10rem;
+      padding: 7%;
      
      
     }
@@ -58,7 +64,7 @@ background-color: blue;
 
 #card-body, h5, h6{
     font-size: small;
-    padding: 2px;
+    padding: 0%;
 
 
 }
@@ -66,12 +72,51 @@ background-color: blue;
 width: 70px;
 height: 70px;
 }
-#col-md-3 button{
-    width: 70px;
+#product-card-price {
+    color: darken($dark-gray,30%);
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 0.8rem;
+  }
+  #product-card-sale {
+    color: $medium-gray;
+    display: inline-block;
+    font-size: 0.85rem;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    text-decoration: line-through;
+  }
+
+
+/* #card-body button{
+    width: 80px;
     height: 30px;
     font-size: 7px;
     margin-left: -1px;
-    }
+    } */
+
+    #card-body .btn-primary {
+      
+            width: 60px;
+            height: 30px;
+            font-size: 5px;
+            margin-left: -1px;
+           
+       
+        }
+        #card-body .btn-info{
+        
+            width: 60px;
+            height: 30px;
+            font-size: 5px;
+            margin-left: -1px;
+        
+         
+          }
+          #card-body .btn-warning{
+            margin-left: 11px;
+          }
 body .carousel-indicator li{
 background-color: blue;
 }
@@ -101,7 +146,17 @@ padding-right: 0;
 .carousel-item
 {
  background-color: #e9ecef;
-
 box-shadow: 0 .125rem .125rem rgba(0,0,0,.075)!important;
 border: 1px solid #dee2e6!important;
+}
+
+/* Clients section */
+#clients{
+    flex-wrap: wrap;
+}
+
+#clients img{
+    width: 66px;
+    padding: 6px;
+    height: auto;
 }

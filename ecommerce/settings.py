@@ -38,9 +38,64 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'shop.apps.ShopConfig'
+    'shop.apps.ShopConfig',
+    
+    'knox',
+    
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
 
 ]
+SITE_ID = 2
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+       'SCOPE': [
+           'profile',
+           'email',
+       ],
+       'AUTH_PARAMS': {
+           'access_type': 'online'
+       }
+       
+    }
+}
+
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SDK_URL': '//connect.facebook.net/{localehost}/sdk.js',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'first_name',
+            'last_name',
+            'middle_name',
+            'name',
+            'name_format',
+            'picture',
+            'short_name'
+        ],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': 'path.to.callable',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v7.0',
+    }
+}
+
+LOGIN_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,6 +109,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'ecommerce.urls'
 
+
+AUTHENTICATION_BACKENDS = [
+   
+    'django.contrib.auth.backends.ModelBackend',
+
+    'allauth.account.auth_backends.AuthenticationBackend',
+   
+]
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -65,7 +130,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+                'django.template.context_processors.request',
+               
             ],
         },
     },
@@ -88,6 +154,8 @@ DATABASES = {
         'PORT' : '5432'
     }
 }
+
+
 
 
 # Password validation
@@ -130,4 +198,22 @@ STATIC_URL= "/static/"
 MEDIA_ROOT= os.path.join(BASE_DIR, "media")
 MEDIA_URL="/media/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+
+# AUTH_USER_MODEL = 'home.User'
+
+
+
+REST_FRAMEWORK = {
+    
+    'DEFAULT_AUTHENTICATION_CLASS' : ('know.auth.TokenAuthentication',),
+}
+from datetime import timedelta
+
+REST_KNOX = {
+    
+    'USER_SERIALIZER' : 'accounts.serializer.UserSerializer',
+    'TOKEN_TTL' : timedelta(hours=24*7),
+}
 

@@ -21,17 +21,91 @@ body,
 /* Footer color for sake of consistency with Navbar */
 /* .page-footer {
   background-color: #929FBA; } */
+#navbar-nav a:hover {
+  padding: 4px;
+}
 
 
 #navbar-expand-lg{
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-background: #FFF;
-z-index: 999999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+  width: 100%;
+  background: #FFF;
+  z-index: 999999;
 
-border-bottom: 0px solid #e5e5e5;
-overflow: hidden;
+  border-bottom: 0px solid #e5e5e5;
+  overflow: hidden;
 
   }
+  #card img:hover {
+    padding: 9px;
+   
+  }
+
+
+.fullscreen-image-slider .orbit-image {
+  width: 100%;
+  height: 600px;
+}
+
+.fullscreen-image-slider .orbit-caption {
+  bottom: 60%;
+  -webkit-transform: translateY(60%);
+      -ms-transform: translateY(60%);
+    transform: translateY(50%);
+  background: none;
+  text-align: center;
+  color: #fefefe;
+  font-weight: bold;
+}
+
+#container h7 {
+   
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: left;
+   
+}
+
+#container h7:hover {
+  padding: 1px;
+  color: #008ae6;
+}
+/* Clients Section */
+#client-section{ 
+  position: relative;
+}
+
+#client-section::before{
+content: "";
+position: absolute;
+background: url('../bg.jpg');
+width: 100%;
+height: 100%;
+z-index: -1;
+opacity: 0.3;
+}
+
+#clients{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.client-item{
+  padding: 34px;
+}
+
+#clients img{
+  height: 100px;
+}
+#popcart{
+  background-position-x: center;
+  position: relative;
+  
+}
+
+

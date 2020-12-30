@@ -15,10 +15,11 @@ def index(request):
     for cat in cats:
         prod = Product.objects.filter(category=cat)
         n = len(prod)
-        nSlides = n // 4 + ceil((n / 4) - (n // 4))
+        nSlides = n // 5 + ceil((n / 5) - (n // 5))
         allProds.append([prod, range(1, nSlides), nSlides])
     params = {'allProds':allProds}
     product = Product.objects.all()
+    print('you are : ', request.session.get('email'))
     return render(request, 'shop/index.html',params)
 
 
@@ -88,6 +89,14 @@ def productView(request, myid):
     # Fetch the product using the id
     product = Product.objects.filter(id=myid)
     return render(request, 'shop/prodView.html', {'product':product[0]})
+
+def productCat(request):
+    query= str(request.GET.get('category'))
+    print(query)
+    prodtemp = Product.objects.filter(category=query)
+    product = Product.objects.all()
+    product = {'product':prodtemp}
+    return render(request, 'shop/productcat.html', product)
 
 
 def checkout(request):
