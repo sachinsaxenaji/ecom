@@ -15,8 +15,8 @@
     padding-right: 0%;
     padding-top: .8%;
     padding-bottom: .8%;
-    width: 320px;
-    height: 405px;
+    width: 260px;
+    height: 399px;
     font-size: medium;
     
 
@@ -41,7 +41,7 @@
        
         }
         .btn-warning{
-          margin-left: 86px;
+          margin-left: 19px;
         }
        
     .carousel-indicators .active {
@@ -54,7 +54,7 @@
     }
     #card
     {
-      width: 20.5rem;
+      width: 17.5rem;
       
     }
     #container{
@@ -389,6 +389,18 @@
    
    
     <h5 class="my-4"  > {{product.0.category}} - Recommended Items</h5>
+    <button type="button" class="btn btn-secondary btn-lg">Sort By</button>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+      
+      <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btncheck1">Price -- Low to High</label>
+    
+      <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btncheck2"> Price -- High to Low</label>
+    
+      <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btncheck3"> Newest First</label>
+    </div>
    
     <div class="row">
       
@@ -477,10 +489,10 @@
               cart[idstr] = [qty, name, parseInt(price)];
       
           }
-          var btn = document.getElementsByClassName('btn-info');
-          for (var k = 0; k < btn.length; k++) {
-            btn[k].style.visibility = 'hidden';
-              }
+          // var btn = document.getElementsByClassName('btn-info');
+          // for (var k = 0; k < btn.length; k++) {
+          //   btn[k].style.visibility = 'hidden';
+          //     }
           updateCart(cart);
       });
       //Add Popover to cart
@@ -534,10 +546,10 @@
           {
               document.getElementById('divpr' + a).innerHTML = '<button id="pr'+a+'" class=" btn btn-primary cart">Add To Cart</button>'
               delete cart['pr' + a];
-              var btn = document.getElementsByClassName('btn-info');
-          for (var k = 0; k < btn.length; k++) {
-            btn[k].style.visibility = 'visible';
-              }
+          //     var btn = document.getElementsByClassName('btn-info');
+          // for (var k = 0; k < btn.length; k++) {
+          //   btn[k].style.visibility = 'visible';
+          //     }
           }
           else{
       

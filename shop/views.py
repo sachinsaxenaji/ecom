@@ -88,6 +88,8 @@ def productView(request, myid):
 
     # Fetch the product using the id
     product = Product.objects.filter(id=myid)
+    product = Product.objects.filter(id=myid)
+    
     return render(request, 'shop/prodView.html', {'product':product[0]})
 
 def productCat(request):
