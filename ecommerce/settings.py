@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'knox',
     
     'django.contrib.sites',
-
+    'import_export',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -147,11 +147,11 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'ecommerce',
+        'NAME': 'ecommerce',
         'USER': 'postgres',
         'PASSWORD': 'Anand12345',
         'HOST': 'database-1.cudcszwbj9gu.ap-south-1.rds.amazonaws.com',
-        'PORT' : '5432'
+        'PORT': '5432'
     }
 }
 

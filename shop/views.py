@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Product, Contact, Orders, OrderUpdate
+from .models import Product, Contact, Orders, OrderUpdate, Design
 from math import ceil
 import json
 from django.views.decorators.csrf import csrf_exempt
@@ -9,22 +9,33 @@ from django.http import HttpResponse
 MERCHANT_KEY = 'KiwP@v8@_6IzWZRO'
 
 def index(request):
+    design = []
     allProds = []
-    catprods = Product.objects.values('category', 'id')
-    cats = {item['category'] for item in catprods}
+    product = []
+    category= []
+    catprods = Product.objects.values('subcategory', 'id')
+    cats = {item['subcategory'] for item in catprods}
     for cat in cats:
-        prod = Product.objects.filter(category=cat)
+        prod = Product.objects.filter(subcategory=cat)
         n = len(prod)
         nSlides = n // 5 + ceil((n / 5) - (n // 5))
         allProds.append([prod, range(1, nSlides), nSlides])
-    params = {'allProds':allProds}
+    design = Design.objects.all()
     product = Product.objects.all()
+    category = Product.objects.filter(category=cat)
+    params = {'allProds':allProds, 'design':design, 'product': product, 'category': category}
+    product = Product.objects.all()
+    
+    
     print('you are : ', request.session.get('email'))
     return render(request, 'shop/index.html',params)
 
 
 def about(request):
     return render(request, 'shop/about.html')
+
+def policy(request):
+    return render(request, 'shop/policy.html')
 
 
 def contact(request):
@@ -89,6 +100,7 @@ def productView(request, myid):
     # Fetch the product using the id
     product = Product.objects.filter(id=myid)
     product = Product.objects.filter(id=myid)
+    
     
     return render(request, 'shop/prodView.html', {'product':product[0]})
 

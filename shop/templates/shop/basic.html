@@ -15,13 +15,18 @@
     <link rel="stylesheet" href="{%static 'shop/css/style.css' %}" />
     <style>
       
-      
+      #top-bar{
+
+        position: fixed;
+        
+         z-index: 999999;
+      }
       #navbar-expand-lg{
       position: fixed;
       
       width: 100%;
-      height: 6.8rem;
-      background: #FFF;
+      height: 3.2rem;
+      background: #AAA;
       z-index: 999999;
       border-bottom: 0px solid #e5e5e5;
       overflow: hidden;
@@ -95,8 +100,13 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id = "navbar-expand-lg">
-  <a class="navbar-brand" href="/shop">My Demo Website</a>
+    <nav class="navbar navbar-expand-lg navbar-gray bg-light" id = "navbar-expand-lg">
+  
+  <a  href = "/shop"><img class="orbit-image" src="{% static 'shop/images/logo.jpg'%}" style="height: 2.7rem;"
+            ">
+
+            <!-- <a class="navbar-brand" href="/shop">My Demo Website</a> -->
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -106,15 +116,26 @@
       <li class="nav-item active">
         <a class="nav-link" href="/shop">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/shop/about">About Us</a>
-      </li>
+     
 
       <li class="nav-item">
         <a class="nav-link" href="/shop/tracker">Tracker</a>
       </li>
 
-      {% if user.is_authenticated %}
+      
+      
+     
+     
+
+
+    </ul>
+    <form method='get' action='/shop/search/' class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" style="margin-top: .9rem;" >
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <ul class="navbar-nav mr-auto" id = "navbar-nav" style="margin-right: 5rem;">
+      <li class="nav-item active">
+    {% if user.is_authenticated %}
       <li class="nav-item"><a class="nav-link">Hello, {{user.username}}</a>
       </li>
       <li class="nav-item"><a class="nav-link" href="/home/logout">logout</a></li>
@@ -123,18 +144,8 @@
         <a class="nav-link" href="/home/register">Login</a>
       </li>
       {% endif %}
-      
-     
-      <li class="nav-item">
-        <a class="nav-link" href="/shop/contact">Contact Us</a>
       </li>
-
-
-    </ul>
-    <form method='get' action='/shop/search/' class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+      </ul>
     <button type="button" class="shopping-cart-button float-right" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
 sagittis lacus vel augue laoreet rutrum faucibus.">
 <i class="fa fa-shopping-cart"></i>
@@ -196,6 +207,40 @@ sagittis lacus vel augue laoreet rutrum faucibus.">
 
   </div>
 </nav>
+<br>
+<br>
+<div class="top-bar foundation-5-top-bar" id ="top-bar">
+  <!-- <div class="top-bar-title">
+    <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-toggle></button>
+    </span>
+    <strong>Categories</strong>
+  </div> -->
+  <div id="responsive-menu" style="margin-left: 5rem; margin-right: 5rem; background-color: antiquewhite;">
+    <div class="top-bar-left">
+      <ul class="dropdown vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown"
+        data-auto-height="true" data-animate-height="true">
+        {% for product, range, nSlides in allProds %}
+        {% for i in product %}
+        <li>
+          
+          <section>
+            <img class="orbit-categery" src="/media/{{i.image}}"
+              style="width: 3.5rem; height: 3.5rem;">
+            <a href="#">{{i.subcategory}}</a>
+          </section>
+          <ul class="menu">
+            <li><a href="#">{{i.product_name}}</a></li>
+           </ul>
+          
+        </li>
+        {% endfor %}
+          {% endfor %}
+       </ul>
+    </div>
+
+  </div>
+</div>
 {% block header %} {% endblock %}
   {% block body %} {% endblock %}
   

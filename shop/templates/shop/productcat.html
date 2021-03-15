@@ -262,38 +262,6 @@
       </a>
     </div> -->
   
-    <div class="fullscreen-image-slider">
-      <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit>
-        <ul class="orbit-container">
-          <button class="orbit-previous">
-            <span class="show-for-sr">Previous Slide</span>
-            <span class="nav fa fa-chevron-left fa-3x"></span>
-          </button>
-          <button class="orbit-next">
-            <span class="show-for-sr">Next Slide</span>
-            <span class="nav fa fa-chevron-right fa-3x"></span>
-          </button>
-          <li class="is-active orbit-slide">
-            <img class="orbit-image" src="{% static 'shop/images/slider.jpg'%}" alt="Space">
-            <figcaption class="orbit-caption">
-              <h1>Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.</h1>
-            </figcaption>
-          </li>
-          <li class="orbit-slide">
-            <img class="orbit-image" src="{% static 'shop/images/slider1.jpg'%}" alt="Space">
-            <figcaption class="orbit-caption">
-              <h1>Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.</h1>
-            </figcaption>
-          </li>
-          <li class="orbit-slide">
-            <img class="orbit-image" src="{% static 'shop/images/slider2.jpg'%}" alt="Space">
-            <figcaption class="orbit-caption">
-              <h1>Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.</h1>
-            </figcaption>
-          </li>
-        </ul>
-      </div>
-    </div>
     
     
     
@@ -301,46 +269,7 @@
     
     {% endblock %}
     {% block body %}
-    <div class="top-bar foundation-5-top-bar">
-        <div class="top-bar-title">
-          <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
-            <button class="menu-icon" type="button" data-toggle></button>
-          </span>
-          <strong>Categories</strong>
-        </div>
-        <div id="responsive-menu">
-          <div class="top-bar-left">
-            <ul class="dropdown vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown" data-auto-height="true" data-animate-height="true">
-              <li>
-                <a href="#">Building Material</a>
-                <ul class="menu">
-                  <li><a href="#">Cement</a></li>
-                  <li><a href="#">TMT</a></li>
-                  <li><a href="#">Steel Bars</a></li>
-                  <li><a href="#">Bricks</a></li>
-               
-                </ul>
-              </li>
-              <li><a href="#">Plumbing</a>
-                <ul class="menu">
-                    <li><a href="#">Cement</a></li>
-                    <li><a href="#">TMT</a></li>
-                    <li><a href="#">Steel Bars</a></li>
-                    <li><a href="#">Bricks</a></li>
-                 
-                  </ul></li>
-              <li><a href="#">Electricals</a>
-                <ul class="menu">
-                    <li><a href="#">Cement</a></li>
-                    <li><a href="#">TMT</a></li>
-                 
-                 
-                  </ul></li>
-            </ul>
-          </div>
-         
-        </div>
-      </div>
+  
 
     <!-- <div class="brands" id = "brands">
 
@@ -388,7 +317,7 @@
   <div class="container" id = "container">
    
    
-    <h5 class="my-4"  > {{product.0.category}} - Recommended Items</h5>
+    <h5 class="my-4"  > {{product.0.category}} </h5>
     <button type="button" class="btn btn-secondary btn-lg">Sort By</button>
     <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
       
@@ -430,38 +359,37 @@
                 </div>
             </div>
         </div>
-       
-        <a class="carousel-control-prev" id = "contarousel-rol-prev" href="#demo{{forloop.counter}}" data-slide="prev">
-            <span class="carousel-control-prev-icon" id = "carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" id = "carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
-            <span class="carousel-control-next-icon" id = "carousel-control-next-icon"></span>
-        </a>
-    </div>
-  
-</div>
+     
 
    
     
 
-    <div class="callout large secondary">
-      <div class="row">
-        <div class="large-4 columns">
-          <h5>Vivamus Hendrerit Arcu Sed Erat Molestie</h5>
-          <p>Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie augue sit.Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu a</p>
-        </div>
-        <div class="large-3 large-offset-2 columns">
-          <ul class="menu vertical" >
-              <li>
-            <iframe height="280" width="600"  
-            src="https://www.youtube.com/embed/il_t1WVLNxk" id="yotube"> 
-            </iframe> 
-        </li>
-          </ul>
-        </div>
+<div class="callout large secondary">
+  <!-- <div class="row"> -->
+  <div class="social-links">
+    <div class="row" style="direction: rtl; padding-right: 5rem;" >
      
-      </div>
+     
+        <a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true" style=" padding-right: 2.5rem;"></i></a>
+     
+        
+        <a href="https://www.instagram.com/?hl=en"><i class="fa fa-instagram" aria-hidden="true"style=" padding-right: 2.5rem;"></i></a>
+     
+ 
+        <a href="https://www.pinterest.com/"><i class="fa fa-whatsapp" aria-hidden="true"style=" padding-right: 2.5rem;"></i></a>
+    
+        <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter" aria-hidden="true"style=" padding-right: 2.5rem;"></i></a>
+        
+        <a href="https://twitter.com/?lang=en"><i class="fa fa" aria-hidden="true"style=" padding-right: 6.5rem;"></i>100% Secure & Trusted Payments</a>
+        <a href="/shop/policy"><i class="fa fa" aria-hidden="true"style=" padding-right: 2.5rem;"></i>Policy and stateme</a>
+
+        <a href="https://www.facebook.com/"><i class="fa fa" aria-hidden="true" style=" padding-right: 20.5rem; "></i>T/C Policies/Return</a>
+        
+     
     </div>
+    
+    <!-- </div> -->
+  </div>
 
   
   {% endblock %}

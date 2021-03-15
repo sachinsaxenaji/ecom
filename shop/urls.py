@@ -11,5 +11,6 @@ urlpatterns = [
     path("checkout/", views.checkout, name="Checkout"),
     path("handlerequest/", views.handlerequest, name="HandleRequest"), 
     path("productcat/", views.productCat, name="productCat"),
+     path("policy/", views.policy, name="policy"),
     
 ]
