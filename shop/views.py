@@ -22,7 +22,7 @@ def index(request):
         allProds.append([prod, range(1, nSlides), nSlides])
     design = Design.objects.all()
     product = Product.objects.all()
-    category = Product.objects.filter(category=cat)
+    
     params = {'allProds':allProds, 'design':design, 'product': product, 'category': category}
     product = Product.objects.all()
     
