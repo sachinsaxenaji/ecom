@@ -6,15 +6,22 @@
 {% block css %}
 
 
-.col-md-3
+#col-md-3
 {
 float: left;
 
 width: 285px;
-height: 380px;
+height: 249px;
 font-size: medium;
 
+}
+#col-md-4
+{
+float: left;
 
+width: 285px;
+height: 329px;
+font-size: medium;
 
 }
 .btn-primary {
@@ -401,7 +408,7 @@ margin-left: 0.65rem;
 
   <div class="row">
 
-    <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel" data-interval="false">
+    <div id="demo{{forloop.counter}}" class="col carousel slide my-2" data-ride="carousel" data-interval="false">
       <!-- <ul class="carousel-indicators">
         <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
 
@@ -419,7 +426,7 @@ margin-left: 0.65rem;
               <div class="card align-items-center" id="card">
                 <img src='/media/{{i.image}}' class="card-img-top" alt="...">
                 <div class="card-body" id="card-body">
-                  <h5 class="card-title" style="text-align:center; " id="namepr{{i.category}}">{{i.subcategory}}</h5>
+                  <h5 class="card-title" style="text-align:center;color: black;" id="namepr{{i.category}}">{{i.subcategory}}</h5>
                   <p class="card-text">{{i.desc}}... sty</p>
 
 
@@ -475,7 +482,7 @@ margin-left: 0.65rem;
 
         {% for i in product %}
 
-        <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-3">
+        <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-4">
           <div class="card align-items-center" id="card">
             <img src='/media/{{i.image}}' class="card-img-top" alt="...">
             <div class="card-body" id="card-body">

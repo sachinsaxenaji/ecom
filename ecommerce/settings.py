@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+from datetime import timedelta
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -28,8 +29,6 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'shop.apps.ShopConfig',
-    
+
     'knox',
-    
+
     'django.contrib.sites',
     'import_export',
     'allauth',
@@ -57,14 +56,14 @@ SITE_ID = 2
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-       'SCOPE': [
-           'profile',
-           'email',
-       ],
-       'AUTH_PARAMS': {
-           'access_type': 'online'
-       }
-       
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online'
+        }
+
     }
 }
 
@@ -113,18 +112,18 @@ ROOT_URLCONF = 'ecommerce.urls'
 
 
 AUTHENTICATION_BACKENDS = [
-   
+
     'django.contrib.auth.backends.ModelBackend',
 
     'allauth.account.auth_backends.AuthenticationBackend',
-   
+
 ]
 
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-         'DIRS': ['ecommerce/templates'],
+        'DIRS': ['ecommerce/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,7 +132,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
-               
+
             ],
         },
     },
@@ -156,8 +155,6 @@ DATABASES = {
         'PORT': '5432'
     }
 }
-
-
 
 
 # Password validation
@@ -196,26 +193,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL= "/static/"
-MEDIA_ROOT= os.path.join(BASE_DIR, "media")
-MEDIA_URL="/media/"
+STATIC_URL = "/static/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 
 
 # AUTH_USER_MODEL = 'home.User'
 
 
-
 REST_FRAMEWORK = {
-    
-    'DEFAULT_AUTHENTICATION_CLASS' : ('know.auth.TokenAuthentication',),
+
+    'DEFAULT_AUTHENTICATION_CLASS': ('know.auth.TokenAuthentication',),
 }
-from datetime import timedelta
 
 REST_KNOX = {
-    
-    'USER_SERIALIZER' : 'accounts.serializer.UserSerializer',
-    'TOKEN_TTL' : timedelta(hours=24*7),
-}
 
+    'USER_SERIALIZER': 'accounts.serializer.UserSerializer',
+    'TOKEN_TTL': timedelta(hours=24*7),
+}
