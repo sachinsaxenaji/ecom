@@ -6,24 +6,22 @@
 {% block css %}
 
 
+
 #col-md-3
 {
 float: left;
-
-width: 285px;
-height: 249px;
+width: 278px;
+height: 324px;
 font-size: medium;
-
 }
-#col-md-4
+<!-- #col-md-4
 {
 float: left;
-
-width: 285px;
-height: 329px;
+width: 278px;
+height: 284px;
 font-size: medium;
-
-}
+padding-top: .2rem;
+} -->
 .btn-primary {
 
 margin-left: 14px;
@@ -62,7 +60,9 @@ cursor: grab;
 }
 #card
 {
-width:17.5rem;
+width:16.9rem;
+padding: -5.85rem;
+padding-right 5.5rem;
 
 }
 #container{
@@ -418,7 +418,7 @@ margin-left: 0.65rem;
       </ul> -->
       <div class="container carousel-inner no-padding" id="carousel-inner">
 
-        <a href="/shop/productcat/?category={{product.0.category}}">
+        
           <div class="carousel-item active" id="carousel-item">
 
             {% for i in product %}
@@ -426,16 +426,25 @@ margin-left: 0.65rem;
               <div class="card align-items-center" id="card">
                 <img src='/media/{{i.image}}' class="card-img-top" alt="...">
                 <div class="card-body" id="card-body">
-                  <h5 class="card-title" style="text-align:center;color: black;" id="namepr{{i.category}}">{{i.subcategory}}</h5>
-                  <p class="card-text">{{i.desc}}... sty</p>
-
-
+                  <h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5>
+                  <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
+                  <h6 class="product-card-price" id="product-card-price">Price : <span
+                      id="pricepr{{i.id}}">{{i.price}}</span></h6>
+                  <h6 class="product-card-sale" id="product-card-sale">Price : <span id="pricepr{{i.id}}">{{i.price}}</span>
+                  </h6>
+                  <span id="divpr{{i.id}}" class="divpr">
+                    <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button></span>
+                  <span id="divqv{{i.id}}" class="divqv">
+                    <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
+                        class="btn btn-info cart">QuickView</button></a>
+                  </span>
+    
                 </div>
               </div>
             </div>
             {% if forloop.counter|divisibleby:5 and forloop.counter > 0 and not forloop.last %}
           </div>
-        </a>
+        
         <div class="carousel-item">
           {% endif %}
 
@@ -460,12 +469,37 @@ margin-left: 0.65rem;
 
   {% endfor %}
 </div>
+<br>
+
+<div class="fullscreen-image-slider">
+  <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit>
+    <ul class="orbit-container">
+      <!-- <button class="orbit-previous">
+        <span class="show-for-sr">Previous Slide</span>
+        <span class="nav fa fa-chevron-left fa-3x"></span>
+      </button>
+      <button class="orbit-next">
+        <span class="show-for-sr">Next Slide</span>
+        <span class="nav fa fa-chevron-right fa-3x"></span>
+      </button> -->
+      {% for design in design %}
+      <li class="is-active orbit-slide">
+        <img class="orbit-image" src='/media/{{design.header}}' alt="Space">
+        <figcaption class="orbit-caption">
+          <h1>An exciting place for the whole construction material to shop
+      </li>
+
+      {% endfor %}
+
+    </ul>
+  </div>
+</div>
 
 <div class="container" id="container">
 
 
 
-  <h5 class="my-4"> Deals Of the day </h5>
+  <h5 class="my-4"> Best Product of the Day </h5>
   <button></button>
   <a method='get' action='/shop/search/' href="/shop/productcat/?category={{product.0.category}}">
     <h8 style="text-align:center;float:right; "> View More</h8>
@@ -475,14 +509,14 @@ margin-left: 0.65rem;
 
   <div class="row">
 
+    <div id="demo{{forloop.counter}}" class="col carousel slide my-2" data-ride="carousel" data-interval="false">
+    <div class="container carousel-inner no-padding" id="carousel-inner">
 
-    <div class="container carousel-inner no-padding" id="carousel-inner_d">
-
-      <div class="carousel-item active" id="carousel-item_d">
+      <div class="carousel-item active" id="carousel-item">
 
         {% for i in product %}
 
-        <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-4">
+        <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-3">
           <div class="card align-items-center" id="card">
             <img src='/media/{{i.image}}' class="card-img-top" alt="...">
             <div class="card-body" id="card-body">
@@ -513,8 +547,9 @@ margin-left: 0.65rem;
 
 
   </div>
-
 </div>
+</div>
+<br>
 
 <!-- <hr>
 
@@ -779,6 +814,7 @@ margin-left: 0.65rem;
 
 </div>
 
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 {% endblock %}
 

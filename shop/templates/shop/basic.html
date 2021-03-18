@@ -26,13 +26,17 @@
       
       width: 100%;
       height: 3.2rem;
-      background: #AAA;
+      background: #528aab;
       z-index: 999999;
       border-bottom: 0px solid #e5e5e5;
       overflow: hidden;
-      
-
+      opacity: 100;
+      background-color: #528aab;
   }
+    #navbar-expand-lg .bg-light{
+      background-color: #748da7!important;
+
+    }
 
     
     .shopping-cart-button {
@@ -85,6 +89,7 @@
 
     margin-bottom: 115px;
     }
+    
 
 
     </style>
@@ -100,7 +105,7 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-gray bg-light" id = "navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar-gray " id = "navbar-expand-lg" >
   
   <a  href = "/shop"><img class="orbit-image" src="{% static 'shop/images/logo.jpg'%}" style="height: 2.7rem;"
             ">
@@ -111,15 +116,15 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto" id = "navbar-nav">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <ul class="navbar-nav mr-auto" id = "navbar-nav" style="text-decoration-color: antiquewhite;">
       <li class="nav-item active">
-        <a class="nav-link" href="/shop">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/shop" style="color: #e6e6e6;">Home <span class="sr-only">(current)</span></a>
       </li>
      
 
       <li class="nav-item">
-        <a class="nav-link" href="/shop/tracker">Tracker</a>
+        <a class="nav-link" href="/shop/tracker" style="color: #e6e6e6;">Tracker</a>
       </li>
 
       
@@ -131,24 +136,24 @@
     </ul>
     <form method='get' action='/shop/search/' class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" style="margin-top: .9rem;" >
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: #e6e6e6;">Search</button>
     </form>
     <ul class="navbar-nav mr-auto" id = "navbar-nav" style="margin-right: 5rem;">
       <li class="nav-item active">
     {% if user.is_authenticated %}
-      <li class="nav-item"><a class="nav-link">Hello, {{user.username}}</a>
+      <li class="nav-item"><a class="nav-link" style="color: #e6e6e6;">Hello, {{user.username}} </a>
       </li>
-      <li class="nav-item"><a class="nav-link" href="/home/logout">logout</a></li>
+      <li class="nav-item"><a class="nav-link" href="/home/logout" style="color: #e6e6e6;" style="color: #e6e6e6;">logout</a></li>
       {% else %}	
       <li class="nav-item">
-        <a class="nav-link" href="/home/register">Login</a>
+        <a class="nav-link" href="/home/register" style="color: #e6e6e6;">Login</a>
       </li>
       {% endif %}
       </li>
       </ul>
     <button type="button" class="shopping-cart-button float-right" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
-sagittis lacus vel augue laoreet rutrum faucibus.">
-<i class="fa fa-shopping-cart"></i>
+sagittis lacus vel augue laoreet rutrum faucibus." style="color: #e6e6e6;">
+<i class="fa fa-shopping-cart" style="color: #e6e6e6;"></i>
 
   (<span id="cart">0</span>)Shopping Cart
 </button>
@@ -226,8 +231,8 @@ sagittis lacus vel augue laoreet rutrum faucibus.">
           
           <section>
             <img class="orbit-categery" src="/media/{{i.image}}"
-              style="width: 3.5rem; height: 3.5rem;">
-            <a href="#">{{i.subcategory}}</a>
+              style="width: 5.5rem; height: 5.5rem;">
+            <a href="#">{{i.category}}</a>
           </section>
           <ul class="menu">
             <li><a href="#">{{i.product_name}}</a></li>
@@ -241,6 +246,9 @@ sagittis lacus vel augue laoreet rutrum faucibus.">
 
   </div>
 </div>
+<br>
+
+
 {% block header %} {% endblock %}
   {% block body %} {% endblock %}
   
