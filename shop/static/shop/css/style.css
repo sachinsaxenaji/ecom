@@ -43,6 +43,13 @@ body,
     padding: 9px;
    
   }
+  .col-md-3
+{
+float: left;
+width: 278px;
+height: 324px;
+font-size: medium;
+}
 
   /* #carousel-item
   {

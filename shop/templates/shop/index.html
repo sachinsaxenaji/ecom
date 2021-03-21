@@ -7,13 +7,7 @@
 
 
 
-#col-md-3
-{
-float: left;
-width: 278px;
-height: 324px;
-font-size: medium;
-}
+
 <!-- #col-md-4
 {
 float: left;
@@ -62,7 +56,7 @@ cursor: grab;
 {
 width:16.9rem;
 padding: -5.85rem;
-padding-right 5.5rem;
+
 
 }
 #container{
@@ -275,7 +269,7 @@ margin-left: 0.65rem;
       </a>
     </div> -->
 
-<div class="fullscreen-image-slider">
+<div class="fullscreen-image-slider" id = "fullscreen-image-slider">
   <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit>
     <ul class="orbit-container">
       <!-- <button class="orbit-previous">
@@ -288,7 +282,7 @@ margin-left: 0.65rem;
       </button> -->
       {% for design in design %}
       <li class="is-active orbit-slide">
-        <img class="orbit-image" src='/media/{{design.header}}' alt="Space">
+        <img class="orbit-image" src='/media/{{design.header}}' alt="Space" >
         <figcaption class="orbit-caption">
           <h1>An exciting place for the whole construction material to shop</h1>
       </li>
@@ -472,7 +466,7 @@ margin-left: 0.65rem;
 </div>
 <br>
 
-<div class="fullscreen-image-slider">
+<div class="fullscreen-image-slider" id = "fullscreen-image-slider">
   <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit ">
     <ul class=" orbit-container">
     <!-- <button class="orbit-previous">
@@ -805,10 +799,10 @@ margin-left: 0.65rem;
   <div class="row">
     <div class="attrb" align="left">
       <span style="margin-left: 5rem;">
-        &nbsp;All rights reserved...100% secure and trusted payments.
+        &nbsp;100% secure and trusted payments.<i style="font-size:24px" class="fa">&#xf1f0;</i><i style="font-size:24px" class="fa">&#xf1ed;</i>
       </span>
     </div>
-    <div class="attrb">
+    <div class="attrb"><i style="font-size:24px" class="fa">&#xf1f1;</i>
       <span style="margin-left: 15rem;">
         &copy2021 anandim.com &nbsp;All rights reserved.
       </span>
