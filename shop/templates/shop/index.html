@@ -102,55 +102,55 @@ padding-left: 0,
 padding-right: 0;
 }
 .container{
-  max-width: initial;
-  padding-left: 0%,
-  padding-right: 0%;
-  
-  }
-  
-  .row{
-  max-width: 100%;
-  padding-left: 0%,
-  padding-right: 0%;
-  width: initial;
-  padding-right: -2dp;
-  <!-- box-shadow: .125rem .125rem 0 rgba(.79,0,0,.079)!important;
+max-width: initial;
+padding-left: 0%,
+padding-right: 0%;
+
+}
+
+.row{
+max-width: 100%;
+padding-left: 0%,
+padding-right: 0%;
+width: initial;
+padding-right: -2dp;
+<!-- box-shadow: .125rem .125rem 0 rgba(.79,0,0,.079)!important;
   border: 1px solid #dee2e6!important; -->
-  }
-  .carousel-inner{
-  max-width: 100%;
-  padding-left: 0%,
-  padding-right: 0%;
-  width: initial;
-  }
-  .my-3{
-  max-width: 100%;
-  padding-left: 0%,
-  padding-right: 0%;
-  width: initial;
-  }
-  .product-card-price {
-  color: darken($dark-gray,30%);
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-top: 0.2rem;
-  }
-  .product-card-sale {
-  color: $medium-gray;
-  display: inline-block;
-  font-size: 0.85rem;
-  margin-left: 0.3rem;
-  margin-right: 5rem;
-  text-decoration: line-through;
-  }
-  .btn-primary minus{
-  width: 250px;
-  }
+}
+.carousel-inner{
+max-width: 100%;
+padding-left: 0%,
+padding-right: 0%;
+width: initial;
+}
+.my-3{
+max-width: 100%;
+padding-left: 0%,
+padding-right: 0%;
+width: initial;
+}
+.product-card-price {
+color: darken($dark-gray,30%);
+display: inline-block;
+font-size: 0.85rem;
+font-weight: 600;
+margin-top: 0.2rem;
+}
+.product-card-sale {
+color: $medium-gray;
+display: inline-block;
+font-size: 0.85rem;
+margin-left: 0.3rem;
+margin-right: 5rem;
+text-decoration: line-through;
+}
+.btn-primary minus{
+width: 250px;
+}
 #carousel-item
 {
-  
-  <!-- background-color: #e9ecef; 
+
+<!-- background-color: #e9ecef; 
   display: inline-block; -->
 
 }
@@ -290,7 +290,7 @@ margin-left: 0.65rem;
       <li class="is-active orbit-slide">
         <img class="orbit-image" src='/media/{{design.header}}' alt="Space">
         <figcaption class="orbit-caption">
-          <h1>An exciting place for the whole construction material to shop
+          <h1>An exciting place for the whole construction material to shop</h1>
       </li>
 
       {% endfor %}
@@ -418,33 +418,34 @@ margin-left: 0.65rem;
       </ul> -->
       <div class="container carousel-inner no-padding" id="carousel-inner">
 
-        
-          <div class="carousel-item active" id="carousel-item">
 
-            {% for i in product %}
-            <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-3">
-              <div class="card align-items-center" id="card">
-                <img src='/media/{{i.image}}' class="card-img-top" alt="...">
-                <div class="card-body" id="card-body">
-                  <h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5>
-                  <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
-                  <h6 class="product-card-price" id="product-card-price">Price : <span
-                      id="pricepr{{i.id}}">{{i.price}}</span></h6>
-                  <h6 class="product-card-sale" id="product-card-sale">Price : <span id="pricepr{{i.id}}">{{i.price}}</span>
-                  </h6>
-                  <span id="divpr{{i.id}}" class="divpr">
-                    <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button></span>
-                  <span id="divqv{{i.id}}" class="divqv">
-                    <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
-                        class="btn btn-info cart">QuickView</button></a>
-                  </span>
-    
-                </div>
+        <div class="carousel-item active" id="carousel-item">
+
+          {% for i in product %}
+          <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-3">
+            <div class="card align-items-center" id="card">
+              <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+              <div class="card-body" id="card-body">
+                <h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5>
+                <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
+                <h6 class="product-card-price" id="product-card-price">Price : <span
+                    id="pricepr{{i.id}}">{{i.price}}</span></h6>
+                <h6 class="product-card-sale" id="product-card-sale">Price : <span
+                    id="pricepr{{i.id}}">{{i.price}}</span>
+                </h6>
+                <span id="divpr{{i.id}}" class="divpr">
+                  <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button></span>
+                <span id="divqv{{i.id}}" class="divqv">
+                  <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
+                      class="btn btn-info cart">QuickView</button></a>
+                </span>
+
               </div>
             </div>
-            {% if forloop.counter|divisibleby:5 and forloop.counter > 0 and not forloop.last %}
           </div>
-        
+          {% if forloop.counter|divisibleby:5 and forloop.counter > 0 and not forloop.last %}
+        </div>
+
         <div class="carousel-item">
           {% endif %}
 
@@ -472,9 +473,9 @@ margin-left: 0.65rem;
 <br>
 
 <div class="fullscreen-image-slider">
-  <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit>
-    <ul class="orbit-container">
-      <!-- <button class="orbit-previous">
+  <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit ">
+    <ul class=" orbit-container">
+    <!-- <button class="orbit-previous">
         <span class="show-for-sr">Previous Slide</span>
         <span class="nav fa fa-chevron-left fa-3x"></span>
       </button>
@@ -482,14 +483,14 @@ margin-left: 0.65rem;
         <span class="show-for-sr">Next Slide</span>
         <span class="nav fa fa-chevron-right fa-3x"></span>
       </button> -->
-      {% for design in design %}
-      <li class="is-active orbit-slide">
-        <img class="orbit-image" src='/media/{{design.header}}' alt="Space">
-        <figcaption class="orbit-caption">
-          <h1>An exciting place for the whole construction material to shop
-      </li>
+    {% for design in design %}
+    <li class="is-active orbit-slide">
+      <img class="orbit-imag" src='/media/{{design.header}}' alt="Space">
+      <figcaption class="orbit-caption">
+        <h1>An exciting place for the whole construction material to shop
+    </li>
 
-      {% endfor %}
+    {% endfor %}
 
     </ul>
   </div>
@@ -510,44 +511,45 @@ margin-left: 0.65rem;
   <div class="row">
 
     <div id="demo{{forloop.counter}}" class="col carousel slide my-2" data-ride="carousel" data-interval="false">
-    <div class="container carousel-inner no-padding" id="carousel-inner">
+      <div class="container carousel-inner no-padding" id="carousel-inner">
 
-      <div class="carousel-item active" id="carousel-item">
+        <div class="carousel-item active" id="carousel-item">
 
-        {% for i in product %}
+          {% for i in product %}
 
-        <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-3">
-          <div class="card align-items-center" id="card">
-            <img src='/media/{{i.image}}' class="card-img-top" alt="...">
-            <div class="card-body" id="card-body">
-              <h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5>
-              <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
-              <h6 class="product-card-price" id="product-card-price">Price : <span
-                  id="pricepr{{i.id}}">{{i.price}}</span></h6>
-              <h6 class="product-card-sale" id="product-card-sale">Price : <span id="pricepr{{i.id}}">{{i.price}}</span>
-              </h6>
-              <span id="divpr{{i.id}}" class="divpr">
-                <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button></span>
-              <span id="divqv{{i.id}}" class="divqv">
-                <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
-                    class="btn btn-info cart">QuickView</button></a>
-              </span>
+          <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-3">
+            <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none"><div class="card align-items-center" id="card">
+              <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+              <div class="card-body" id="card-body">
+                <h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5>
+                <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
+                <h6 class="product-card-price" id="product-card-price">Price : <span
+                    id="pricepr{{i.id}}">{{i.price}}</span></h6>
+                <h6 class="product-card-sale" id="product-card-sale">Price : <span
+                    id="pricepr{{i.id}}">{{i.price}}</span>
+                </h6>
+                <span id="divpr{{i.id}}" class="divpr">
+                  <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button></span>
+                <span id="divqv{{i.id}}" class="divqv">
+                  <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
+                      class="btn btn-info cart">QuickView</button></a>
+                </span>
 
-            </div>
+              </div>
+            </div></a>
+
           </div>
-
+          {% endfor %}
         </div>
-        {% endfor %}
+
       </div>
 
+
+
+
+
     </div>
-
-
-
-
-
   </div>
-</div>
 </div>
 <br>
 
@@ -757,12 +759,72 @@ margin-left: 0.65rem;
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 <!-- Start of body below -->
 
+<footer class="footer" style="background-color:#528aab; color: white;">
+  <div class="row">
+    <div class="col-sm-4" align="center">
+      <h2>About Us</h2>
+      <p>Only4Football is an initiative to create a one-stop destination for all things related to the sport of
+        Football. The endeavour is to create a platform where football players, fans, coaches, parents and critics can
+        come and engage in meaningful information dissemination.
+      </p>
+    </div>
+    <div class="col-sm-4" align="center">
+      <h2>Follow Us</h2>
+      <div class="social-links" align="center" " style=" color: white;">
+        <a href="#">
+          <i class="fa fa-facebook teal-color fa-2x"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-twitter teal-color fa-2x"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-google-plus teal-color fa-2x"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-linkedin teal-color fa-2x"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-instagram teal-color fa-2x"></i>
+        </a>
+       
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <h2 style="margin-left: 10.2rem;">Contact</h2>
+      <address align="center">
+        <i class="fa fa-map-marker"></i> Civil Lines, Bareilly
+        <br />
+        <i class="fa fa-phone"></i> +91-9084736350
+        <br>
+        <i class="fa fa-envelope"></i>
+        <a href="mailto:anandim@gmail.com" style="background-color:blue; color: white;" > &nbsp;info.anandim@gmail.com</a>
+      </address>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="attrb" align="left">
+      <span style="margin-left: 5rem;">
+        &nbsp;All rights reserved...100% secure and trusted payments.
+      </span>
+    </div>
+    <div class="attrb">
+      <span style="margin-left: 15rem;">
+        &copy2021 anandim.com &nbsp;All rights reserved.
+      </span>
+    </div>
+    <div class="attrb" align="right" style="padding-bottom: 1.2rem;">
+      <a href="/shop/policy/"><span style="margin-left: 18rem; background-color:blue; color: white;" >
+          &nbsp;privecy and policy.
+        </span></a>
+    </div>
+  </div>
+</footer>
 
 
-
-<div class="callout large secondary">
-  <!-- <div class="row"> -->
-  <div class="social-links">
+<!-- <div class="callout large secondary"> -->
+<!-- <div class="row"> -->
+<!-- <div class="social-links">
     <div class="row" style="direction: rtl; padding-right: 5rem;">
 
 
@@ -789,11 +851,11 @@ margin-left: 0.65rem;
         Policies/Return</a>
 
 
-    </div>
+    </div> -->
 
-    <!-- </div> -->
-  </div>
-  <!-- <div class="row">
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="row">
     <div class="large-4 columns">
       <h5>Vivamus Hendrerit Arcu Sed Erat Molestie</h5>
       <p>Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet
@@ -812,9 +874,9 @@ margin-left: 0.65rem;
 
   </div> -->
 
-</div>
+<!-- </div> -->
 
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<button onclick="topFunction()" id="myBtn" title="Go to top" style="background-color:#52ab7a; color: white;">Top</button>
 
 {% endblock %}
 
