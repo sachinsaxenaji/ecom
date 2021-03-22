@@ -42,6 +42,7 @@ class Contact(models.Model):
     
 class Design(models.Model):
     header = models.ImageField(upload_to='shop/images', default="")
+    banner = models.ImageField(upload_to='shop/images', default="")
 
     
 class Orders(models.Model):

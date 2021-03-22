@@ -45,13 +45,14 @@ height: 140px;
 }
 .col-md-3 img:hover {
 padding: 18px;
-
-}
-.col-md-3 :hover {
-
 cursor: grab;
 
 }
+<!-- .col-md-3 :hover {
+
+cursor: grab;
+
+} -->
 #card
 {
 width:16.9rem;
@@ -417,8 +418,8 @@ margin-left: 0.65rem;
 
           {% for i in product %}
           <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-3">
-            <div class="card align-items-center" id="card">
-              <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+             <div class="card align-items-center" id="card">
+              <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none"><img src='/media/{{i.image}}' class="card-img-top" alt="..."></a>
               <div class="card-body" id="card-body">
                 <h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5>
                 <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
@@ -427,8 +428,12 @@ margin-left: 0.65rem;
                 <h6 class="product-card-sale" id="product-card-sale">Price : <span
                     id="pricepr{{i.id}}">{{i.price}}</span>
                 </h6>
-                <span id="divpr{{i.id}}" class="divpr">
-                  <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button></span>
+                <!-- <span id="divpr{{i.id}}" class="divpr">
+                  <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button></span> -->
+
+                  <span id="divpr{{i.id}}" class="divpr"><button id='pr{{i.id}}" + item +
+        "' class='btn btn-warning btn-sm minus' >-</button> <span id='val" + item + "''>0</span> <button id='pr{{i.id}}" + item + "' class='btn btn-success btn-sm plus'> + </span>
+
                 <span id="divqv{{i.id}}" class="divqv">
                   <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
                       class="btn btn-info cart">QuickView</button></a>
@@ -479,9 +484,9 @@ margin-left: 0.65rem;
       </button> -->
     {% for design in design %}
     <li class="is-active orbit-slide">
-      <img class="orbit-imag" src='/media/{{design.header}}' alt="Space">
+      <img class="orbit-imag" src='/media/{{design.banner}}' alt="Space">
       <figcaption class="orbit-caption">
-        <h1>An exciting place for the whole construction material to shop
+        <h1>Here to make your life easier, Great stores. Great choices.
     </li>
 
     {% endfor %}
@@ -522,8 +527,8 @@ margin-left: 0.65rem;
                 <h6 class="product-card-sale" id="product-card-sale">Price : <span
                     id="pricepr{{i.id}}">{{i.price}}</span>
                 </h6>
-                <span id="divpr{{i.id}}" class="divpr">
-                  <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button></span>
+                <span id="divpr{{i.id}}" class="divpr"><button id='pr{{i.id}}" + item +
+                  "' class='btn btn-warning btn-sm minus' >-</button> <span id='val" + item + "''>0</span> <button id='pr{{i.id}}" + item + "' class='btn btn-success btn-sm plus'> + </span>
                 <span id="divqv{{i.id}}" class="divqv">
                   <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
                       class="btn btn-info cart">QuickView</button></a>
@@ -1012,5 +1017,6 @@ margin-left: 0.65rem;
   } else {
     console.log('User is  authenticated')
   }
+  $('.btn-warning').click(function(event){event.stopPropogation})
 </script>
 {% endblock %}
