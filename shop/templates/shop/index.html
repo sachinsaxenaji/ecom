@@ -270,7 +270,7 @@ margin-left: 0.65rem;
       </a>
     </div> -->
 
-<div class="fullscreen-image-slider" id = "fullscreen-image-slider">
+<div class="fullscreen-image-slider" id="fullscreen-image-slider">
   <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit>
     <ul class="orbit-container">
       <!-- <button class="orbit-previous">
@@ -283,7 +283,7 @@ margin-left: 0.65rem;
       </button> -->
       {% for design in design %}
       <li class="is-active orbit-slide">
-        <img class="orbit-image" src='/media/{{design.header}}' alt="Space" >
+        <img class="orbit-image" src='/media/{{design.header}}' alt="Space">
         <figcaption class="orbit-caption">
           <h1>An exciting place for the whole construction material to shop</h1>
       </li>
@@ -418,8 +418,9 @@ margin-left: 0.65rem;
 
           {% for i in product %}
           <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-3">
-             <div class="card align-items-center" id="card">
-              <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none"><img src='/media/{{i.image}}' class="card-img-top" alt="..."></a>
+            <div class="card align-items-center" id="card">
+              <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none"><img src='/media/{{i.image}}'
+                  class="card-img-top" alt="..."></a>
               <div class="card-body" id="card-body">
                 <h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5>
                 <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
@@ -431,13 +432,14 @@ margin-left: 0.65rem;
                 <!-- <span id="divpr{{i.id}}" class="divpr">
                   <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button></span> -->
 
-                  <span id="divpr{{i.id}}" class="divpr"><button id='pr{{i.id}}" + item +
-        "' class='btn btn-warning btn-sm minus' >-</button> <span id='val" + item + "''>0</span> <button id='pr{{i.id}}" + item + "' class='btn btn-success btn-sm plus'> + </span>
+                <span id="divpr{{i.id}}" class="divpr"><button id='pr{{i.id}}" + item +
+        "' class='btn btn-warning btn-sm minus'>-</button> <span id='val" + item + "''>0</span> <button id='
+                    pr{{i.id}}" + item + "' class='btn btn-success btn-sm plus'> + </span>
 
-                <span id="divqv{{i.id}}" class="divqv">
-                  <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
-                      class="btn btn-info cart">QuickView</button></a>
-                </span>
+                <span id=" divqv{{i.id}}" class="divqv">
+                    <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
+                        class="btn btn-info cart">QuickView</button></a>
+                  </span>
 
               </div>
             </div>
@@ -471,7 +473,7 @@ margin-left: 0.65rem;
 </div>
 <br>
 
-<div class="fullscreen-image-slider" id = "fullscreen-image-slider">
+<div class="fullscreen-image-slider" id="fullscreen-image-slider">
   <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit ">
     <ul class=" orbit-container">
     <!-- <button class="orbit-previous">
@@ -517,25 +519,28 @@ margin-left: 0.65rem;
           {% for i in product %}
 
           <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-3">
-            <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none"><div class="card align-items-center" id="card">
-              <img src='/media/{{i.image}}' class="card-img-top" alt="...">
-              <div class="card-body" id="card-body">
-                <h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5>
-                <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
-                <h6 class="product-card-price" id="product-card-price">Price : <span
-                    id="pricepr{{i.id}}">{{i.price}}</span></h6>
-                <h6 class="product-card-sale" id="product-card-sale">Price : <span
-                    id="pricepr{{i.id}}">{{i.price}}</span>
-                </h6>
-                <span id="divpr{{i.id}}" class="divpr"><button id='pr{{i.id}}" + item +
-                  "' class='btn btn-warning btn-sm minus' >-</button> <span id='val" + item + "''>0</span> <button id='pr{{i.id}}" + item + "' class='btn btn-success btn-sm plus'> + </span>
-                <span id="divqv{{i.id}}" class="divqv">
-                  <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
-                      class="btn btn-info cart">QuickView</button></a>
-                </span>
+            <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none">
+              <div class="card align-items-center" id="card">
+                <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+                <div class="card-body" id="card-body">
+                  <h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5>
+                  <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
+                  <h6 class="product-card-price" id="product-card-price">Price : <span
+                      id="pricepr{{i.id}}">{{i.price}}</span></h6>
+                  <h6 class="product-card-sale" id="product-card-sale">Price : <span
+                      id="pricepr{{i.id}}">{{i.price}}</span>
+                  </h6>
+                  <span id="divpr{{i.id}}" class="divpr"><button id='pr{{i.id}}" + item +
+                  "' class='btn btn-warning btn-sm minus'>-</button> <span id='val" + item + "''>0</span> <button id='
+                      pr{{i.id}}" + item + "' class='btn btn-success btn-sm plus'> + </span>
+                <span id=" divqv{{i.id}}" class="divqv">
+                      <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
+                          class="btn btn-info cart">QuickView</button></a>
+                    </span>
 
+                </div>
               </div>
-            </div></a>
+            </a>
 
           </div>
           {% endfor %}
@@ -758,7 +763,7 @@ margin-left: 0.65rem;
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 <!-- Start of body below -->
 
-<footer class="footer" style="background-color:#14123b; color: white;">
+<footer class="footer" style="background-color:#2d6a70; color: white;">
   <div class="row">
     <div class="col-sm-4" align="center">
       <h2>About Us</h2>
@@ -785,7 +790,7 @@ margin-left: 0.65rem;
         <a href="#">
           <i class="fa fa-instagram teal-color fa-2x"></i>
         </a>
-       
+
       </div>
     </div>
     <div class="col-sm-4">
@@ -796,7 +801,7 @@ margin-left: 0.65rem;
         <i class="fa fa-phone"></i> +91-9084736350
         <br>
         <i class="fa fa-envelope"></i>
-        <a href="mailto:anandim@gmail.com" style="background-color:blue; color: white;" > &nbsp;info.anandim@gmail.com</a>
+        <a href="mailto:anandim@gmail.com" style="color: white;"> &nbsp;info.anandim@gmail.com</a>
       </address>
     </div>
   </div>
@@ -804,7 +809,8 @@ margin-left: 0.65rem;
   <div class="row">
     <div class="attrb" align="left">
       <span style="margin-left: 5rem;">
-        &nbsp;100% secure and trusted payments.<i style="font-size:24px" class="fa">&#xf1f0;</i><i style="font-size:24px" class="fa">&#xf1ed;</i>
+        &nbsp;100% secure and trusted payments.<i style="font-size:24px" class="fa">&#xf1f0;</i><i
+          style="font-size:24px" class="fa">&#xf1ed;</i>
       </span>
     </div>
     <div class="attrb"><i style="font-size:24px" class="fa">&#xf1f1;</i>
@@ -813,7 +819,7 @@ margin-left: 0.65rem;
       </span>
     </div>
     <div class="attrb" align="right" style="padding-bottom: 1.2rem;">
-      <a href="/shop/policy/"><span style="margin-left: 18rem; background-color:blue; color: white;" >
+      <a href="/shop/policy/"><span style="margin-left: 18rem; color: white;">
           &nbsp;privecy and policy.
         </span></a>
     </div>
@@ -875,7 +881,8 @@ margin-left: 0.65rem;
 
 <!-- </div> -->
 
-<button onclick="topFunction()" id="myBtn" title="Go to top" style="background-color:#52ab7a; color: white;">Top</button>
+<button onclick="topFunction()" id="myBtn" title="Go to top"
+  style="background-color:#52ab7a; color: white;">Top</button>
 
 {% endblock %}
 
@@ -1017,6 +1024,8 @@ margin-left: 0.65rem;
   } else {
     console.log('User is  authenticated')
   }
-  $('.btn-warning').click(function(event){event.stopPropogation})
+  $('.btn-warning').click(function (event) {
+    event.stopPropogation
+  })
 </script>
 {% endblock %}
