@@ -101,7 +101,7 @@ background-color: blue;
     margin-left: -1px;
     } */
 
-    #card-body .btn-primary {
+    #card-body .btn-warning {
       
             width: 60px;
             height: 30px;
@@ -110,7 +110,7 @@ background-color: blue;
            margin-left: 5px;
        
         }
-        #card-body .btn-info{
+        #card-body .btn-success{
         
             width: 60px;
             height: 30px;

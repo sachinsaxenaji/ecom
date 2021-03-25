@@ -26,15 +26,23 @@ font-size: 12px;
 .btn-info{
 
 margin-left: 14px;
-width: 90px;
+width: 80px;
 height: 30px;
 font-size: 12px;
 }
 
 .btn-warning{
-margin-left: 19px;
+  margin-left: 14px;
+  width: 80px;
+  height: 30px;
+  font-size: 12px;
 }
-
+.btn-success{
+  margin-left: 14px;
+  width: 90px;
+  height: 30px;
+  font-size: 12px;
+}
 .carousel-indicators .active {
 background-color: blue;
 }
@@ -389,8 +397,6 @@ margin-left: 0.65rem;
 
 <div class="container" id="container">
 
-
-
   {% for product, range, nSlides in allProds %}
 
   <h5 class="my-4"> {{product.0.subcategory}} </h5>
@@ -398,10 +404,7 @@ margin-left: 0.65rem;
   <a method='get' action='/shop/search/' href="/shop/productcat/?category={{product.0.category}}">
     <h8 style="text-align:center;float:right; "> View More</h8>
   </a>
-
-
-
-  <div class="row">
+<div class="row">
 
     <div id="demo{{forloop.counter}}" class="col carousel slide my-2" data-ride="carousel" data-interval="false">
       <!-- <ul class="carousel-indicators">
@@ -422,38 +425,35 @@ margin-left: 0.65rem;
               <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none"><img src='/media/{{i.image}}'
                   class="card-img-top" alt="..."></a>
               <div class="card-body" id="card-body">
-                <h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5>
+                <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none"><h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5></a>
                 <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
                 <h6 class="product-card-price" id="product-card-price">Price : <span
                     id="pricepr{{i.id}}">{{i.price}}</span></h6>
                 <h6 class="product-card-sale" id="product-card-sale">Price : <span
                     id="pricepr{{i.id}}">{{i.price}}</span>
                 </h6>
-                <!-- <span id="divpr{{i.id}}" class="divpr">
-                  <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button></span> -->
 
-                <span id="divpr{{i.id}}" class="divpr"><button id='pr{{i.id}}" + item +
+
+                <span id="divpr{{i.id}}" class="divpr">
+                  <button id="pr{{i.id}}"
+                      class="btn btn-warning cart">-</button>  0
+                
+                
+                  <button id="pr{{i.id}}" class="btn btn-success cart">+</button></span>
+
+                <!-- <span id="divpr{{i.id}}" class="divpr"><button id='pr{{i.id}}" + item +
         "' class='btn btn-warning btn-sm minus'>-</button> <span id='val" + item + "''>0</span> <button id='
-                    pr{{i.id}}" + item + "' class='btn btn-success btn-sm plus'> + </span>
+                    pr{{i.id}}" + item + "' class='btn btn-success btn-sm plus'> + </span> -->
 
-                <span id=" divqv{{i.id}}" class="divqv">
-                    <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
-                        class="btn btn-info cart">QuickView</button></a>
-                  </span>
-
-              </div>
+                </div>
             </div>
           </div>
           {% if forloop.counter|divisibleby:5 and forloop.counter > 0 and not forloop.last %}
         </div>
 
         <div class="carousel-item">
-          {% endif %}
-
-
-          {% endfor %}
-
-
+          {% endif %} {% endfor %}
+ 
         </div>
       </div>
 
@@ -498,17 +498,11 @@ margin-left: 0.65rem;
 </div>
 
 <div class="container" id="container">
-
-
-
   <h5 class="my-4"> Best Product of the Day </h5>
   <button></button>
   <a method='get' action='/shop/search/' href="/shop/productcat/?category={{product.0.category}}">
     <h8 style="text-align:center;float:right; "> View More</h8>
   </a>
-
-
-
   <div class="row">
 
     <div id="demo{{forloop.counter}}" class="col carousel slide my-2" data-ride="carousel" data-interval="false">
@@ -519,30 +513,23 @@ margin-left: 0.65rem;
           {% for i in product %}
 
           <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-3">
-            <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none">
-              <div class="card align-items-center" id="card">
-                <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+             <div class="card align-items-center" id="card">
+                <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none"><img src='/media/{{i.image}}' class="card-img-top" alt="..."></a>
                 <div class="card-body" id="card-body">
-                  <h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5>
+                  <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none"><h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5></a>
                   <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
                   <h6 class="product-card-price" id="product-card-price">Price : <span
                       id="pricepr{{i.id}}">{{i.price}}</span></h6>
                   <h6 class="product-card-sale" id="product-card-sale">Price : <span
                       id="pricepr{{i.id}}">{{i.price}}</span>
                   </h6>
-                  <span id="divpr{{i.id}}" class="divpr"><button id='pr{{i.id}}" + item +
-                  "' class='btn btn-warning btn-sm minus'>-</button> <span id='val" + item + "''>0</span> <button id='
-                      pr{{i.id}}" + item + "' class='btn btn-success btn-sm plus'> + </span>
-                <span id=" divqv{{i.id}}" class="divqv">
-                      <a href="/shop/products/{{i.id}}" id="btn-info"><button id="qv{{i.id}}"
-                          class="btn btn-info cart">QuickView</button></a>
-                    </span>
+                  <span id="divpr{{i.id}}" class="divpr">
+                    <button id="pr{{i.id}}" class="btn btn-warning cart">-</button>  0
+                  <button id="pr{{i.id}}" class="btn btn-success cart">+</button></span>
 
                 </div>
               </div>
-            </a>
-
-          </div>
+            </div>
           {% endfor %}
         </div>
 
@@ -809,11 +796,11 @@ margin-left: 0.65rem;
   <div class="row">
     <div class="attrb" align="left">
       <span style="margin-left: 5rem;">
-        &nbsp;100% secure and trusted payments.<i style="font-size:24px" class="fa">&#xf1f0;</i><i
-          style="font-size:24px" class="fa">&#xf1ed;</i>
+        &nbsp;100% secure and trusted payments.<i style="font-size:24px; margin-left: 4.2px;" class="fa">&#xf1f0;</i><i
+          style="font-size:24px ; margin-left: 4.2px;" class="fa">&#xf1ed;</i>
       </span>
     </div>
-    <div class="attrb"><i style="font-size:24px" class="fa">&#xf1f1;</i>
+    <div class="attrb"><i style="font-size:24px ; margin-left: 4.2px;" class="fa">&#xf1f1;</i>
       <span style="margin-left: 15rem;">
         &copy2021 anandim.com &nbsp;All rights reserved.
       </span>
@@ -889,6 +876,7 @@ margin-left: 0.65rem;
 {% block js %}
 <script>
   // Find out the cart items from localStorage
+  
   if (localStorage.getItem('cart') == null) {
     var cart = {};
   } else {
@@ -912,7 +900,7 @@ margin-left: 0.65rem;
     }
     // item = "{{product.id}}";
 
-    // document.getElementById('qv' + item).style.visibility = 'hidden';
+     //document.getElementById('qv' + item).style.visibility = 'hidden';
 
 
     // for (var k = 0; k < btn.length; k++) {
@@ -941,14 +929,16 @@ margin-left: 0.65rem;
       "</div> <a href='/shop/checkout'><button class='btn btn-primary' id ='checkout'>Checkout</button></a> <button class='btn btn-primary' onclick='clearCart()' id ='clearCart'>Clear Cart</button>     "
     console.log(popStr);
     document.getElementById('popcart').setAttribute('data-content', popStr);
+    
     // $('#popcart').popover('show');
   }
 
   function clearCart() {
     cart = JSON.parse(localStorage.getItem('cart'));
     for (var item in cart) {
-      document.getElementById('div' + item).innerHTML = '<button id="' + item +
-        '" class="btn btn-primary cart">Add To Cart</button>'
+      document.getElementById('div' + item).innerHTML = "<button id='minus" + item +
+        "' class='btn btn-warning btn-sm minus' >-</button> <span id='val" + item + "''>" + cart[item][0] +
+        "</span> <button id='plus" + item + "' class='btn btn-success btn-sm plus'> + </button>";
     }
     localStorage.clear();
     cart = {};
@@ -959,9 +949,11 @@ margin-left: 0.65rem;
     var sum = 0;
     for (var item in cart) {
       sum = sum + cart[item][0];
+      
       document.getElementById('div' + item).innerHTML = "<button id='minus" + item +
         "' class='btn btn-warning btn-sm minus' >-</button> <span id='val" + item + "''>" + cart[item][0] +
         "</span> <button id='plus" + item + "' class='btn btn-success btn-sm plus'> + </button>";
+      // document.getElementById('div'+item).style.display = 'none';
     }
     localStorage.setItem('cart', JSON.stringify(cart));
     document.getElementById('cart').innerHTML = sum;
@@ -975,8 +967,9 @@ margin-left: 0.65rem;
     cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
     document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
     if (cart['pr' + a][0] == 0) {
-      document.getElementById('divpr' + a).innerHTML = '<button id="pr' + a +
-        '" class=" btn btn-primary cart">Add To Cart</button>'
+      document.getElementById('divpr' + a).innerHTML = "<button id='minus"+
+        "' class='btn btn-warning btn-sm minus' >-</button> <span id='val" +"''>" + '0' +
+        "</span> <button id='plus" + "' class='btn btn-success btn-sm plus'> + </button>";
       delete cart['pr' + a];
       //     var btn = document.getElementsByClassName('divqv');
       // for (var k = 0; k < btn.length; k++) {
