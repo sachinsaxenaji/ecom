@@ -1,0 +1,45 @@
+<div class="container" id="container">
+    <h5 class="my-4"> Best Product of the Day </h5>
+    <button></button>
+    <a method='get' action='/shop/search/' href="/shop/productcat/?category={{product.0.category}}">
+      <h8 style="text-align:center;float:right; "> View More</h8>
+    </a>
+    <div class="row">
+  
+      <div id="demo{{forloop.counter}}" class="col carousel slide my-2" data-ride="carousel" data-interval="false">
+        <div class="container carousel-inner no-padding" id="carousel-inner">
+  
+          <div class="carousel-item active" id="carousel-item">
+  
+            {% for i in product %}
+  
+            <div class="col-xs-3 col-sm-3 col-md-3" id="col-md-3">
+               <div class="card align-items-center" id="card">
+                  <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none"><img src='/media/{{i.image}}' class="card-img-top" alt="..."></a>
+                  <div class="card-body" id="card-body">
+                    <a href="/shop/products/{{i.id}}" style="color: black; text-decoration:none"><h5 class="card-title" style="text-align:center; " id="namepr{{i.id}}">{{i.product_name}}</h5></a>
+                    <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
+                    <h6 class="product-card-price" id="product-card-price">Price : <span
+                        id="pricepr{{i.id}}">{{i.price}}</span></h6>
+                    <h6 class="product-card-sale" id="product-card-sale">Price : <span
+                        id="pricepr{{i.id}}">{{i.price}}</span>
+                    </h6>
+                    <span id="divpr{{i.id}}" class="divpr">
+                      <button id="pr{{i.id}}" class="btn btn-warning cart">-</button>  0
+                    <button id="pr{{i.id}}" class="btn btn-success cart">+</button></span>
+  
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+  
+        </div>
+  
+  
+  
+  
+  
+      </div>
+    </div>
+  </div>
