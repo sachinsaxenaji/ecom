@@ -34,8 +34,7 @@ body,
   width: 100%;
   background: #FFF;
   z-index: 999999;
-
-  border-bottom: 0px solid #e5e5e5;
+   border-bottom: 0px solid #e5e5e5;
   overflow: hidden;
 
   }
@@ -118,9 +117,20 @@ opacity: 0.3;
 #clients img{
   height: 100px;
 }
-#popcart{
+.popover-body {
+  margin-top: 5.5rem;
+  position: relative;
+  z-index: 10;
+ ;
+}
+#popover{
+  padding: 15rem;
   background-position-x: center;
   position: relative;
+  background-color: #008ae6;
+  color: #555;
+  /* overflow: hidden;
+  margin-top: 25dp; */
   
 }
 
