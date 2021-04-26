@@ -151,7 +151,7 @@ DATABASES = {
         'NAME': 'ecommerce',
         'USER': 'postgres',
         'PASSWORD': 'Anand12345',
-        'HOST': 'database-1.cudcszwbj9gu.ap-south-1.rds.amazonaws.com',
+        'HOST': 'ecommerce.cudcszwbj9gu.ap-south-1.rds.amazonaws.com',
         'PORT': '5432'
     }
 }
